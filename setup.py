@@ -18,7 +18,7 @@ setup(
     author_email="arnaud@levaufre.name",
     license="MIT",
     classifiers=[
-        "Development Status :: 5 - Production/Sable",
+        "Development Status :: 5 - Production/Stable",
         "Intended Audience :: System Administrators",
         "Intended Audience :: End Users/Desktop",
         "Topic :: System :: Filesystems",
