@@ -7,7 +7,6 @@ here = path.abspath(path.dirname(__file__))
 with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
     long_description = f.read()
 
-
 setup(
     name="btrfs-simple-snapshots",
     version="0.1.0",
@@ -27,7 +26,7 @@ setup(
         "Programming Language :: Python :: 3.7",
     ],
     keywords="btrfs snapshot subvolume backup",
-    packages=find_packages(),
+    py_modules=['btrfs_simple_snapshots'],
     install_requires=[],
     entry_points={
         'console_scripts': [
