@@ -17,9 +17,10 @@ Every subvolume that should be snapshoted must be given as argument to the
 script. For example if you want to snapshot every home directory created as
 subvolumes and your `/etc` and `/srv` directory you would do
 
-.. doctest:: bash
-btrfs-simple-snapshots /home/* /etc /srv
-..
+.. code-block::
+
+  btrfs-simple-snapshots /home/* /etc /srv
+
 
 Once done, you will find a new subvolume named `.snapshots` inside the
 snapshoted subvolume with a name formated as `%Y-%m-%d-%H%M%S`
@@ -33,6 +34,7 @@ good thing to run it automatically with a cron job. Depending on you need you
 may run it once per day (at 2 a.m.) to snapshot every home folder (created as
 subvolumes) with this kind of job definition.
 
-.. doctest:: cron
-0 2 * * * python -m btrfs_simple_snapshots /home/*
-..
+.. code-block::
+
+  0 2 * * * python -m btrfs_simple_snapshots /home/*
+
