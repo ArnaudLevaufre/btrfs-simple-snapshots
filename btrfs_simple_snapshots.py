@@ -55,11 +55,7 @@ def btrfs_delete_subvolume(subvolume):
 
 def btrfs_snapshot(subvolume, snapshot_path):
     cmd = ["btrfs", "subvolume", "snapshot", "-r", subvolume, snapshot_path]
-    try:
-        subprocess.run(cmd, check=True)
-    except subprocess.CalledProcessError:
-        return False
-    return True
+    subprocess.run(cmd)
 
 
 def snapshot(subvolume):
