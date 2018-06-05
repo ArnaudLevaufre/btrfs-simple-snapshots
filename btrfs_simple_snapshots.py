@@ -73,6 +73,7 @@ def snapshot(subvolume):
 
 
 def apply_retention_policy(subvolume, policies=None):
+    logger.info("Applying retention poicies to %s snapshots", subvolume)
     if not policies:
         policies = [
             (86400, '%Y%m%d%H'),  # Keep an hourly snapshot for 24 hours
@@ -81,8 +82,13 @@ def apply_retention_policy(subvolume, policies=None):
             (31536000, '%Y%m'),  # Keep a monthly snaphost for 12 months
             (315360000, '%Y'),  # Keep a yearly snapshot 10 years
         ]
+
     snap_dir = get_snap_dir(subvolume)
-    snaps = os.listdir(snap_dir)
+    if os.path.isdir(snap_dir):
+        snaps = os.listdir(snap_dir)
+    else:
+        logger.info("%s doesn't exist so there is nothing to do", snap_dir)
+        return
 
     # use a cmmon refenrece to now for every steps of the terention policy
     # application.
