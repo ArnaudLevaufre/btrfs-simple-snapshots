@@ -73,7 +73,7 @@ def snapshot(subvolume):
 
 
 def apply_retention_policy(subvolume, policies=None):
-    logger.info("Applying retention poicies to %s snapshots", subvolume)
+    logger.info("Applying retention policies to %s snapshots", subvolume)
     if not policies:
         policies = [
             (86400, '%Y%m%d%H'),  # Keep an hourly snapshot for 24 hours
