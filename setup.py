@@ -9,7 +9,7 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
 
 setup(
     name="btrfs-simple-snapshots",
-    version="0.1.1",
+    version="0.1.2",
     description="Snapshot you btrfs subvolumes and apply a retention policy",
     long_description=long_description,
     url="https://github.com/ArnaudLevaufre/btrfs-simple-snapshots",
