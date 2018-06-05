@@ -50,7 +50,7 @@ def btrfs_create_subvolume(subvolume):
 
 def btrfs_delete_subvolume(subvolume):
     cmd = ["btrfs", "subvolume", "delete", subvolume]
-    subprocess.run(cmd, check=True)
+    subprocess.run(cmd)
 
 
 def btrfs_snapshot(subvolume, snapshot_path):
