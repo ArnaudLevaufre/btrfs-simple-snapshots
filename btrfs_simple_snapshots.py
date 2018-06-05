@@ -115,7 +115,7 @@ def apply_retention_policy(subvolume, policies=None):
     for policy_workspace in policy_workspaces.values():
         for snaps in policy_workspace.values():
             if len(snaps):
-                exclude_snap.append(list(reversed(sorted(snaps)))[0])
+                exclude_snap.append(sorted(snaps)[0])
 
     snaps_to_delete = filter(lambda x: x not in exclude_snap, snaps)
     for snap in snaps_to_delete:
