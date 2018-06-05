@@ -62,9 +62,9 @@ def snapshot(subvolume):
     snap_dir = get_snap_dir(subvolume)
 
     if not os.path.exists(snap_dir):
-        btrfs_create_subvolume(snap_dir)
-        stat = os.stat(subvolume)
-        os.chown(subvolume, stat.st_uid, stat.st_gid)
+        if btrfs_create_subvolume(snap_dir):
+            stat = os.stat(subvolume)
+            os.chown(snap_dir, stat.st_uid, stat.st_gid)
 
     snap_name = datetime.datetime.now().strftime(SNAP_FORMAT)
     snap_path = os.path.join(snap_dir, snap_name)
